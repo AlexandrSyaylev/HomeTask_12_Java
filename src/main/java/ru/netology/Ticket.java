@@ -11,7 +11,7 @@ public class Ticket implements Comparable<Ticket> {
 
     }
 
-    public Ticket (int id, int costs, String outBoarding, String destinationAirport, int flyingTimeInMin) {
+    public Ticket(int id, int costs, String outBoarding, String destinationAirport, int flyingTimeInMin) {
         this.id = id;
         this.costs = costs;
         this.outBoarding = outBoarding;
@@ -61,6 +61,6 @@ public class Ticket implements Comparable<Ticket> {
 
     @Override
     public int compareTo(Ticket o) {
-        return this.getCosts()-getCosts();  //дешевый первый
+        return this.getCosts() - getCosts();  //дешевый первый
     }
 }
