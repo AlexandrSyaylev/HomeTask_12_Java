@@ -10,11 +10,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicketTest {
+    List<Ticket> tickets = new ArrayList<>();
+    Ticket oneTicketTuDublin = new Ticket(2, 120, "msk", "nov", 240);
+    Ticket twoTicketTuDublin = new Ticket(1, 110, "msk", "nov", 240);
+    Ticket freeTicket = new Ticket(3, 100, "msk", "nov", 240);
 
 
     @Test
     public void shouldSetAndGetId() {
-        Ticket oneTicketTuDublin = new Ticket();
         oneTicketTuDublin.setId(1);
         int expected = 1;
         int actual = oneTicketTuDublin.getId();
@@ -23,7 +26,6 @@ class TicketTest {
 
     @Test
     public void shouldSetAndGetCosts() {
-        Ticket oneTicketTuDublin = new Ticket();
         oneTicketTuDublin.setCosts(100);
         int expected = 100;
         int actual = oneTicketTuDublin.getCosts();
@@ -32,16 +34,14 @@ class TicketTest {
 
     @Test
     public void shouldSetAndGetOutboard() {
-        Ticket oneTicketTuDublin = new Ticket();
-        oneTicketTuDublin.setOutBoarding("msk");
-        String expected = "msk";
+        oneTicketTuDublin.setOutBoarding("Kem");
+        String expected = "Kem";
         String actual = oneTicketTuDublin.getOutBoarding();
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldSetAndGetDestination() {
-        Ticket oneTicketTuDublin = new Ticket();
         oneTicketTuDublin.setDestinationAirport("msk");
         String expected = "msk";
         String actual = oneTicketTuDublin.getDestinationAirport();
@@ -50,7 +50,6 @@ class TicketTest {
 
     @Test
     public void shouldSetAndGetFlyingTime() {
-        Ticket oneTicketTuDublin = new Ticket();
         oneTicketTuDublin.setFlyingTimeInMin(600);
         int expected = 600;
         int actual = oneTicketTuDublin.getFlyingTimeInMin();
@@ -59,18 +58,14 @@ class TicketTest {
 
     @Test
     public void shouldSortByCosts() {
-        List<Ticket> tickets = new ArrayList<>();
-        Ticket oneTicketTuDublin = new Ticket(2, 120, "msk", "nov", 240);
-        Ticket twoTicketTuDublin = new Ticket(1, 110, "msk", "nov", 240);
-        Ticket freeTicket = new Ticket(3, 100, "msk", "nov", 240);
         tickets.add(oneTicketTuDublin);
         tickets.add(twoTicketTuDublin);
         tickets.add(freeTicket);
-        Collections.sort(tickets);
-        System.out.println(" After Sort list");
+        Collections.reverse(tickets);
         for (Ticket i : tickets) {
+            System.out.println(" After Sort list");
             System.out.println(i);
         }
-
     }
+
 }

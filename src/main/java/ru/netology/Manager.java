@@ -1,5 +1,9 @@
 package ru.netology;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Manager {
     private Repository repository;
 
@@ -27,9 +31,18 @@ public class Manager {
     // метод определения соответствия товара product запросу search
     public boolean matches(Ticket product, String searchTo, String searchForm) {
         if (product.getDestinationAirport().contains(searchTo)) {
-            return product.getDestinationAirport().contains(searchForm);
+            return product.getOutBoarding().contains(searchForm);
         }
         return false;
     }
 
+    public Ticket[] sortByCosts(Ticket[] tickets) {
+        //Arrays.sort(tickets, Collections.reverseOrder()); //Use for drop down and control
+        Arrays.sort(tickets);
+        for (Ticket i : tickets) {
+            System.out.println(" After Sort list");
+            System.out.println(i);
+        }
+        return tickets;
+    }
 }
