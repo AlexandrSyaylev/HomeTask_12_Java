@@ -33,12 +33,16 @@ class ManagerTest {
 
     @Test
     public void shouldSearchAndSortByCost() {
+        Ticket oneTicketTuDublin = new Ticket(5, 1200, "VKO", "NOV", 240);
+        Ticket twoTicketTuDublin = new Ticket(2, 1800, "VKO", "NOV", 240);
+        Ticket freeTicket = new Ticket(4, 1000, "VKO", "NOV", 240);
+        Ticket freeForAll = new Ticket(7, 900, "VKO", "NOV", 240);
         manager.add(oneTicketTuDublin);
         manager.add(twoTicketTuDublin);
-        manager.add(freeForAll); //id 4 costs 110
-        manager.add(freeTicket); //id 3 costs 100
+        manager.add(freeForAll);
+        manager.add(freeTicket);
         Ticket[] tmp = manager.searchBy("NOV", "VKO");
-        Ticket[] expected = {freeTicket, freeForAll};
+        Ticket[] expected = {freeForAll, freeTicket, oneTicketTuDublin, twoTicketTuDublin};
         Ticket[] actual = manager.sortByCosts(tmp);
         assertArrayEquals(expected, actual);
     }
